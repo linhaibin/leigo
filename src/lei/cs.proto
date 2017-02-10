@@ -1,0 +1,43 @@
+package cs;
+
+enum ID {
+  ID_C2S_Login = 10000;
+  ID_S2C_Login = 10001;
+  ID_C2S_HeartBeat = 10002;
+  ID_S2C_HeartBeat = 10003;
+  ID_C2S_Chat = 10004;
+  ID_S2C_Chat = 10005;
+}
+
+enum RET {
+  RET_OK = 0;
+  RET_ERROR = 1;
+}
+
+message C2S_Login {
+  required uint32 id = 1;
+}
+
+message S2C_Login {
+  required uint32 ret = 1;
+}
+
+message C2S_HeartBeat {
+}
+
+message S2C_HeartBeat {
+}
+
+message C2S_Chat {
+  required uint32 type = 1; //1-单发，2-群发
+  required uint32 from_id = 2;
+  required uint32 to_id = 3;
+  required string msg = 4;
+}
+
+message S2C_Chat {
+  required uint32 type = 1; //1-单发，2-群发
+  required uint32 from_id = 2;
+  required uint32 to_id = 3;
+  required string msg = 4;
+}
